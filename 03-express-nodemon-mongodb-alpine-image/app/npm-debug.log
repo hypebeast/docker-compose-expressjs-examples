@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/sruml/.nvm/versions/node/v6.2.2/bin/node',
+1 verbose cli   '/Users/sruml/.nvm/versions/node/v6.2.2/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle app@0.0.0~prestart: app@0.0.0
+6 silly lifecycle app@0.0.0~prestart: no script for prestart, continuing
+7 info lifecycle app@0.0.0~start: app@0.0.0
+8 verbose lifecycle app@0.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle app@0.0.0~start: PATH: /Users/sruml/.nvm/versions/node/v6.2.2/lib/node_modules/npm/bin/node-gyp-bin:/Users/sruml/Development/docker-nodejs-examples/03-express-nodemon-mongodb-alpine-image/app/node_modules/.bin:/Users/sruml/.nvm/versions/node/v6.2.2/bin:/Users/sruml/.nvm/versions/node/v6.2.2/bin:/usr/local/heroku/bin:/projects/szcms/pcmd:/projects/szcms_tools/ant/bin:/projects/szcms_tools/maven/bin:/Users/sruml/.pyenv/plugins/pyenv-virtualenv/shims:/Users/sruml/.pyenv/shims:/Users/sruml/.rbenv/shims:/usr/local/bin:/Users/sruml/.pyenv/bin:/Users/sruml/.local/bin:/Users/sruml/.local/venvs/pipsi/bin:/Users/sruml/bin/gradle-2.4/bin:/Users/sruml/bin/activator/:/Users/sruml/Apps/Qt/5.1.1/clang_64/bin/:/Users/sruml/anaconda/bin:/Users/sruml/Apps/flip.3.2.1/bin:/Users/sruml/bin:/Users/sruml/bin/scala-2.11.7/bin:/Users/sruml/.dotfiles/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Library/TeX/texbin:/usr/local/heroku/bin:/Users/sruml/.gvm/vertx/current/bin:/Users/sruml/.gvm/springboot/current/bin:/Users/sruml/.gvm/lazybones/current/bin:/Users/sruml/.gvm/jbake/current/bin:/Users/sruml/.gvm/groovyserv/current/bin:/Users/sruml/.gvm/groovy/current/bin:/Users/sruml/.gvm/griffon/current/bin:/Users/sruml/.gvm/grails/current/bin:/Users/sruml/.gvm/gradle/current/bin:/Users/sruml/.gvm/glide/current/bin:/Users/sruml/.gvm/gaiden/current/bin:/Users/sruml/.gvm/crash/current/bin:/Users/sruml/.gvm/asciidoctorj/current/bin:/projects/szcms/pcmd:/projects/szcms_tools/ant/bin:/projects/szcms_tools/maven/bin:/Users/sruml/.pyenv/plugins/pyenv-virtualenv/shims:/Users/sruml/.pyenv/shims:/Users/sruml/.rbenv/shims:/Users/sruml/.pyenv/bin:/Users/sruml/.local/bin:/Users/sruml/.local/venvs/pipsi/bin:/Users/sruml/bin/gradle-2.4/bin:/Users/sruml/bin/activator/:/Users/sruml/Apps/Qt/5.1.1/clang_64/bin/:/Users/sruml/anaconda/bin:/Users/sruml/Apps/flip.3.2.1/bin:/Users/sruml/bin:/Users/sruml/bin/scala-2.11.7/bin:/Users/sruml/.dotfiles/bin
+10 verbose lifecycle app@0.0.0~start: CWD: /Users/sruml/Development/docker-nodejs-examples/03-express-nodemon-mongodb-alpine-image/app
+11 silly lifecycle app@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
+12 silly lifecycle app@0.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle app@0.0.0~start: Failed to exec start script
+14 verbose stack Error: app@0.0.0 start: `node ./bin/www`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/Users/sruml/.nvm/versions/node/v6.2.2/lib/node_modules/npm/lib/utils/lifecycle.js:245:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/Users/sruml/.nvm/versions/node/v6.2.2/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:852:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+15 verbose pkgid app@0.0.0
+16 verbose cwd /Users/sruml/Development/docker-nodejs-examples/03-express-nodemon-mongodb-alpine-image/app
+17 error Darwin 13.4.0
+18 error argv "/Users/sruml/.nvm/versions/node/v6.2.2/bin/node" "/Users/sruml/.nvm/versions/node/v6.2.2/bin/npm" "start"
+19 error node v6.2.2
+20 error npm  v3.9.5
+21 error code ELIFECYCLE
+22 error app@0.0.0 start: `node ./bin/www`
+22 error Exit status 1
+23 error Failed at the app@0.0.0 start script 'node ./bin/www'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the app package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node ./bin/www
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs app
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls app
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

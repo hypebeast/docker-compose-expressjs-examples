@@ -1,0 +1,139 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const debug = require('debug')('app:server');
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
+const mongoose = require('mongoose');
+
+const app = require('../app');
+const config = require('../config');
+
+/**
+ * Bootstrap Mongoose models
+ */
+
+const models = path.join(__dirname, '..', 'models');
+
+fs.readdirSync(models)
+    .filter(file => ~file.search(/^[^\.].*\.js$/))
+    .forEach(file => require(path.join(models, file)));
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Connect to MongoDB server
+ */
+
+connect()
+    .on('error', console.log)
+    .on('disconnect', connect)
+    .once('open', listen)
+    .once('open', createTodos);
+
+/**
+ * Starts the server
+ */
+function listen() {
+    server.listen(port);
+}
+
+/**
+ * Add some todo documents.
+ */
+function createTodos() {
+    const todos = [
+        { title: 'Todo 1', description: 'Nulla vestibulum tempus ipsum et.' },
+        { title: 'Todo 2', description: 'Nulla vestibulum tempus ipsum et.' },
+        { title: 'Todo 3', description: 'Nulla vestibulum tempus ipsum et.' },
+        { title: 'Todo 4', description: 'Nulla vestibulum tempus ipsum et.' }
+    ];
+
+    mongoose.model('Todo').create(todos);
+}
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+/**
+ * Connect to MongoDB
+ */
+function connect () {
+    const options = { server: { socketOptions: { keepAlive: 1  }  }  };
+    return mongoose.connect(config.db, options).connection;
+}
