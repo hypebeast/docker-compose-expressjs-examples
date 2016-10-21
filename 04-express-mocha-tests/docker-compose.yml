@@ -5,12 +5,6 @@ services:
         build: .
         volumes:
             - ./app:/app/src
-            - /app/src/node_modules
         ports:
             - 3000:3000
         command: npm start
-        links:
-            - mongo
-    
-    mongo:
-        image: mongo

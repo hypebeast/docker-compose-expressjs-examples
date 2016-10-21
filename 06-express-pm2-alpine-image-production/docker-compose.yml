@@ -8,9 +8,4 @@ services:
             - /app/src/node_modules
         ports:
             - 3000:3000
-        command: npm start
-        links:
-            - mongo
-    
-    mongo:
-        image: mongo
+        command: pm2 start -x ./bin/www --no-daemon
