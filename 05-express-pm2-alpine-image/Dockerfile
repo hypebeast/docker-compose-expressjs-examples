@@ -4,10 +4,10 @@ RUN mkdir /app
 
 RUN npm install pm2 -g
 
-WORKDIR /app/src
+WORKDIR /app
 
-COPY app/package.json /app/package.json
-RUN npm install
+COPY app /app
+RUN npm install --production
 
 EXPOSE 3000
 
