@@ -1,0 +1,8 @@
+{
+    "script": "./bin/www",
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "js json jade",
+    "legacyWatch": true
+}
